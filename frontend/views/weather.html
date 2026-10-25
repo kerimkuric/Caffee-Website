@@ -1,0 +1,38 @@
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Weather</h1>
+        <div class="d-inline-flex mb-lg-5">
+            <p class="m-0 text-white"><a class="text-white" href="#/home">Home</a></p>
+            <p class="m-0 text-white px-2">/</p>
+            <p class="m-0 text-white">Weather</p>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="section-title">
+        <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">External API</h4>
+        <h1 class="display-4">Coffee weather in Sarajevo</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="card weather-card p-5">
+                <p class="role-hint mb-2">OpenWeatherMap · placeholder</p>
+                <h2 class="text-white">Sarajevo</h2>
+                <p class="display-4 mb-3">8°C</p>
+                <p>Overcast · light wind</p>
+                <p class="mb-0">Suggested drink: <strong>Bosanska kafa</strong></p>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+            <h4>How this will work</h4>
+            <p>Milestone 3 adds a PHP service that calls OpenWeatherMap with a timeout. The API key stays in <code>backend/config/config.php</code> (not on GitHub).</p>
+            <ul>
+                <li>Backend endpoint, for example <code>GET /weather</code>, returns temperature and a drink suggestion.</li>
+                <li>The home page and this page show a short card, not raw JSON.</li>
+                <li>If the API fails, we log the error and keep the rest of the shop working with a friendly message.</li>
+            </ul>
+            <a href="#/menu" class="btn btn-primary font-weight-bold py-2 px-4">See drinks</a>
+        </div>
+    </div>
+</div>

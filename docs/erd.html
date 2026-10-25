@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Kod Kere — draft ERD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="module">
+        import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+        mermaid.initialize({ startOnLoad: true, theme: "neutral" });
+    </script>
+    <style>
+        body { font-family: Georgia, serif; max-width: 960px; margin: 2rem auto; padding: 0 1rem; color: #33211d; }
+        h1 { font-family: Montserrat, sans-serif; }
+        .note { color: #666; }
+    </style>
+</head>
+<body>
+    <h1>Kod Kere — draft ERD</h1>
+    <p class="note">Milestone 1 planning only. Tables will be created in MySQL in Milestone 2.</p>
+    <pre class="mermaid">
+erDiagram
+    USERS ||--o{ ORDERS : places
+    USERS ||--o{ RESERVATIONS : books
+    USERS ||--o{ REVIEWS : writes
+    CATEGORIES ||--o{ PRODUCTS : groups
+    PRODUCTS ||--o{ ORDER_ITEMS : appears_in
+    ORDERS ||--o{ ORDER_ITEMS : contains
+    PRODUCTS ||--o{ REVIEWS : receives
+
+    USERS {
+        int id PK
+        string email
+        string role
+    }
+    CATEGORIES {
+        int id PK
+        string name
+    }
+    PRODUCTS {
+        int id PK
+        int category_id FK
+        decimal price
+    }
+    RESERVATIONS {
+        int id PK
+        int user_id FK
+        date reservation_date
+    }
+    ORDERS {
+        int id PK
+        int user_id FK
+        decimal total
+    }
+    ORDER_ITEMS {
+        int id PK
+        int order_id FK
+        int product_id FK
+    }
+    REVIEWS {
+        int id PK
+        int user_id FK
+        int rating
+    }
+    </pre>
+</body>
+</html>

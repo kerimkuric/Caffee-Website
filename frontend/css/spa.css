@@ -1,0 +1,40 @@
+/* SPA layout on top of the Koppee theme */
+#app {
+    min-height: 55vh;
+}
+
+.navbar-nav .nav-link.spa-active {
+    color: #da9f5b !important;
+}
+
+.kk-table thead th {
+    background: #33211d;
+    color: #fff;
+    border: 0;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.kk-badge-admin {
+    background: #da9f5b;
+    color: #33211d;
+}
+
+.weather-card {
+    background: rgba(51, 33, 29, 0.85);
+    color: #fff;
+    border: 0;
+}
+
+.weather-card .display-4 {
+    color: #da9f5b;
+}
+
+.role-hint {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #da9f5b;
+}

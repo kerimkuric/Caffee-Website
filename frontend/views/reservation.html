@@ -1,0 +1,106 @@
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Reservation</h1>
+        <div class="d-inline-flex mb-lg-5">
+            <p class="m-0 text-white"><a class="text-white" href="#/home">Home</a></p>
+            <p class="m-0 text-white px-2">/</p>
+            <p class="m-0 text-white">Reservation</p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="reservation position-relative overlay-top overlay-bottom">
+            <div class="row align-items-center">
+                <div class="col-lg-6 my-5 my-lg-0">
+                    <div class="p-5">
+                        <div class="mb-4">
+                            <h1 class="display-3 text-primary">30% OFF</h1>
+                            <h1 class="text-white">For weekday mornings</h1>
+                        </div>
+                        <p class="text-white">Book a table at Kod Kere. This form is static in Milestone 1. Later it will POST to <code>/reservations</code> with JWT auth.</p>
+                        <ul class="list-inline text-white m-0">
+                            <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Choose date, time, and party size</li>
+                            <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Customers see their own bookings</li>
+                            <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Admins confirm, seat, or cancel</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center p-5" style="background: rgba(51, 33, 29, .8);">
+                        <h1 class="text-white mb-4 mt-5">Book Your Table</h1>
+                        <form class="mb-5" onsubmit="alert('Static form for Milestone 1. Reservations will be saved in Milestone 4.'); return false;">
+                            <div class="form-group">
+                                <input type="text" class="form-control bg-transparent border-primary p-4" placeholder="Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control bg-transparent border-primary p-4" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="date" id="date" data-target-input="nearest">
+                                    <input type="text" class="form-control bg-transparent border-primary p-4 datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="time" id="time" data-target-input="nearest">
+                                    <input type="text" class="form-control bg-transparent border-primary p-4 datetimepicker-input" placeholder="Time" data-target="#time" data-toggle="datetimepicker">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <select class="custom-select bg-transparent border-primary px-4" style="height: 49px;">
+                                    <option selected>Party size</option>
+                                    <option value="1">1 guest</option>
+                                    <option value="2">2 guests</option>
+                                    <option value="3">3 guests</option>
+                                    <option value="4">4 guests</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary btn-block font-weight-bold py-3" type="submit">Book Now</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <p class="role-hint mb-1">Staff view · entity: reservations</p>
+            <h2>Upcoming reservations</h2>
+            <p class="text-muted">Static sample. Admins will later confirm or cancel these rows through the API.</p>
+            <div class="table-responsive">
+                <table class="table table-striped kk-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Guest</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Party</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>21</td>
+                            <td>Ajla H.</td>
+                            <td>2026-10-28</td>
+                            <td>10:00</td>
+                            <td>2</td>
+                            <td>confirmed</td>
+                        </tr>
+                        <tr>
+                            <td>22</td>
+                            <td>Emir S.</td>
+                            <td>2026-10-28</td>
+                            <td>18:30</td>
+                            <td>4</td>
+                            <td>pending</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

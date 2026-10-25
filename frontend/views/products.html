@@ -1,0 +1,68 @@
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Products</h1>
+        <div class="d-inline-flex mb-lg-5">
+            <p class="m-0 text-white"><a class="text-white" href="#/home">Home</a></p>
+            <p class="m-0 text-white px-2">/</p>
+            <p class="m-0 text-white">Products</p>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <p class="role-hint mb-1">Admin CRUD · entity: products</p>
+            <h2 class="mb-0">Menu products</h2>
+        </div>
+        <button class="btn btn-primary font-weight-bold" type="button" onclick="alert('Create product will POST /products in Milestone 4.');">Add product</button>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped kk-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Available</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Espresso</td>
+                    <td>Hot drinks</td>
+                    <td>3.50 KM</td>
+                    <td>Yes</td>
+                    <td><button class="btn btn-sm btn-secondary">Edit</button> <button class="btn btn-sm btn-outline-danger">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Bosanska kafa</td>
+                    <td>Hot drinks</td>
+                    <td>4.00 KM</td>
+                    <td>Yes</td>
+                    <td><button class="btn btn-sm btn-secondary">Edit</button> <button class="btn btn-sm btn-outline-danger">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Iced latte</td>
+                    <td>Cold drinks</td>
+                    <td>5.50 KM</td>
+                    <td>Yes</td>
+                    <td><button class="btn btn-sm btn-secondary">Edit</button> <button class="btn btn-sm btn-outline-danger">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Cold brew</td>
+                    <td>Cold drinks</td>
+                    <td>6.00 KM</td>
+                    <td>No</td>
+                    <td><button class="btn btn-sm btn-secondary">Edit</button> <button class="btn btn-sm btn-outline-danger">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
