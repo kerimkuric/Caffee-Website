@@ -1,0 +1,28 @@
+# Secrets and local config
+backend/config/config.php
+.env
+.env.local
+
+# Logs
+backend/logs/*.log
+*.log
+
+# Dependencies
+vendor/
+backend/vendor/
+node_modules/
+
+# IDE / OS
+.idea/
+.vscode/
+.vs/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Temp
+tmp/
+temp/
+*.tmp
+composer.phar

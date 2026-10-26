@@ -1,0 +1,56 @@
+<div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+        <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Users</h1>
+        <div class="d-inline-flex mb-lg-5">
+            <p class="m-0 text-white"><a class="text-white" href="#/home">Home</a></p>
+            <p class="m-0 text-white px-2">/</p>
+            <p class="m-0 text-white">Users</p>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <p class="role-hint mb-1">Admin only · entity: users</p>
+            <h2 class="mb-0">Staff and guests</h2>
+        </div>
+        <button class="btn btn-primary font-weight-bold" type="button" onclick="alert('Create user will POST /users in Milestone 4.');">Add user</button>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped kk-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Kerim Admin</td>
+                    <td>admin@kodkere.ba</td>
+                    <td><span class="badge kk-badge-admin">admin</span></td>
+                    <td><button class="btn btn-sm btn-secondary">Edit</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Ajla H.</td>
+                    <td>ajla@example.com</td>
+                    <td>customer</td>
+                    <td><button class="btn btn-sm btn-secondary">Edit</button></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Emir S.</td>
+                    <td>emir@example.com</td>
+                    <td>customer</td>
+                    <td><button class="btn btn-sm btn-secondary">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
