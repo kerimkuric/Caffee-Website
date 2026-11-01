@@ -22,16 +22,6 @@
     color: #33211d;
 }
 
-.weather-card {
-    background: rgba(51, 33, 29, 0.85);
-    color: #fff;
-    border: 0;
-}
-
-.weather-card .display-4 {
-    color: #da9f5b;
-}
-
 .role-hint {
     font-size: 0.8rem;
     letter-spacing: 0.08em;

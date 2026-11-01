@@ -5,17 +5,20 @@ Kod Kere is an individual university web-programming project: a coffee shop SPA 
 ## Technology stack
 
 - Frontend: HTML, CSS, JavaScript only. Koppee Bootstrap 4 template, customized. No mixing of PHP into the frontend.
-- Backend: pure PHP, FlightPHP for the REST API, PDO with prepared statements.
+- Backend: pure PHP, FlightPHP for the REST API (from Milestone 3), PDO with prepared statements.
 - Database: MySQL, at least 5 entities with CRUD.
 - Auth: JWT. Roles: `admin` and `customer`.
 - Docs: OpenAPI / Swagger (from Milestone 3).
-- External API: OpenWeatherMap for Sarajevo “coffee weather”.
+- External API: required by the course from Milestone 3. Not weather. A shop-related API (for example maps on the contact page) will be chosen then.
 
 ## Architecture rules
 
 - Keep frontend and backend separate. Views must not call the database.
 - From Milestone 5, only frontend service files may perform AJAX. Do not put `fetch` / `$.ajax` inside HTML views then.
 - Backend layers: routes → services → DAO. Services are the only layer that calls DAO.
+- SQL lives only in DAO classes. Do not write queries in routes or services.
+- Every entity DAO extends `BaseDao` and inherits the PDO connection plus `getAll`, `getById`, `insert`, `update`, `delete`.
+- Always use prepared statements for values. Table/column names are never taken from user input.
 - Middleware is registered once in FlightPHP (auth, roles, request logging, error handling). Do not copy that logic into every route.
 - Secrets live in `backend/config/config.php`. Commit `config.example.php` only.
 - Write info logs to `backend/logs/info.log` and errors to `backend/logs/error.log`.
@@ -25,6 +28,7 @@ Kod Kere is an individual university web-programming project: a coffee shop SPA 
 
 ```
 backend/routes, services, dao, middleware, config, logs
+database/     kod_kere.sql
 frontend/css, js, views, img, lib
 docs/          ERD, AI_LOG.md
 AGENTS.md
@@ -38,9 +42,9 @@ README.md
 - Frontend views: `frontend/views/*.html`.
 - Hash routes: `#/home`, `#/login`, `#/products`, …
 
-## Milestone 1 scope (current)
+## Milestone 2 scope (current)
 
-Static SPA only. No real API, no database. Sample data in HTML is allowed. Backend folders exist but stay empty except config example and log placeholders.
+MySQL schema with sample data and the DAO layer only. No FlightPHP routes, no services, no JWT, no frontend AJAX to the API.
 
 ## Course reviewer
 

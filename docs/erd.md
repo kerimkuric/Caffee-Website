@@ -1,18 +1,20 @@
-# Kod Kere — draft Entity-Relationship Diagram (Milestone 1)
+# Kod Kere — Entity-Relationship Diagram (Milestone 2)
 
-Open `"C:\Users\kerim\Desktop\kod-kere\docs\erd.html"` in a browser for the visual diagram.
+Open [`erd.html`](erd.html) in a browser for the visual diagram.
 
-## Entities (6 + order_items)
+Schema file: [`database/kod_kere.sql`](../database/kod_kere.sql)
 
-| Entity | Purpose |
+## Entities
+
+| Table | Purpose |
 | --- | --- |
-| **users** | Customers and admins. Roles: `admin`, `customer`. |
-| **categories** | Menu groups (hot drinks, cold drinks, pastry). |
-| **products** | Drinks and food on the menu. |
-| **reservations** | Table bookings for a date, time, and party size. |
-| **orders** | Customer orders with a status and total. |
-| **reviews** | Guest ratings and comments. |
-| order_items | Line items on an order (not a standalone screen; CRUD goes through orders). |
+| **users** | Customers and admins (`admin`, `customer`) |
+| **categories** | Menu groups |
+| **products** | Drinks and pastry |
+| **reservations** | Table bookings |
+| **orders** | Cafe orders |
+| **reviews** | Ratings and comments |
+| order_items | Line items on an order (CRUD through `OrderItemDao`) |
 
 ## Relationships
 
@@ -21,7 +23,7 @@ Open `"C:\Users\kerim\Desktop\kod-kere\docs\erd.html"` in a browser for the visu
 - An **order** contains many **products** through **order_items**.
 - A **review** belongs to a **user** and optionally to a **product**.
 
-## Draft attributes
+## Attributes
 
 ```
 users(id PK, first_name, last_name, email UNIQUE, password_hash, role, phone, created_at)
@@ -32,6 +34,16 @@ orders(id PK, user_id FK, status, total, created_at)
 order_items(id PK, order_id FK, product_id FK, quantity, unit_price)
 reviews(id PK, user_id FK, product_id FK NULL, rating, comment, created_at)
 ```
+
+Foreign keys:
+
+- `products.category_id` → `categories.id` (`ON DELETE RESTRICT`)
+- `reservations.user_id` → `users.id` (`ON DELETE CASCADE`)
+- `orders.user_id` → `users.id` (`ON DELETE CASCADE`)
+- `order_items.order_id` → `orders.id` (`ON DELETE CASCADE`)
+- `order_items.product_id` → `products.id` (`ON DELETE RESTRICT`)
+- `reviews.user_id` → `users.id` (`ON DELETE CASCADE`)
+- `reviews.product_id` → `products.id` (`ON DELETE SET NULL`)
 
 ## Mermaid ERD
 
@@ -95,5 +107,3 @@ erDiagram
         string comment
     }
 ```
-
-MySQL `.sql` with sample data is Milestone 2.
