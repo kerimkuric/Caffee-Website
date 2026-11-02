@@ -31,3 +31,29 @@ AI tools are allowed if this file and `AGENTS.md` are kept up to date.
    An easy mistake would have been cloning the 2025 library backend. That would mix topics and skip “from scratch”. Noticed by re-reading M1: backend folders only, static frontend, draft ERD. Fixed by empty backend packages + Koppee-based views with Kod Kere copy.
 
 If a later milestone uses no AI, say so in that section. `AGENTS.md` is still required.
+
+## Milestone 2 (1 Nov 2026)
+
+**Tools:** Cursor (Grok 4.6 agent) for MySQL schema, `BaseDao` / entity DAOs, and removing the unused weather UI.
+
+**Used for**
+
+- Milestone 2 checklist (schema + sample SQL + DAO CRUD + config)
+- Course Reading 03 DAO notes (PDO options, `BaseDao`, prepared statements)
+- Last year’s library project as a layout reference (`database/*.sql`, one DAO per table)
+- Deleting OpenWeatherMap pages because the spec requires *an* external API later, not weather
+
+**Important prompts (summary)**
+
+- Stick to project rules; implement Milestone 2 only
+- Follow Reading 03 DAO notes
+- Delete weather if the rules do not require it
+
+**Where the AI was wrong or weak (at least 2 cases)**
+
+1. **Weather was treated as required in Milestone 1**  
+   The assistant had planned OpenWeatherMap because the spec lists weather as *an example* of an external API. The user asked to remove it unless the rules demand it. They do not; only “at least one external API” is required, and that is Milestone 3. Fixed by deleting `weather.html`, nav/footer/home/dashboard copy, and config keys.
+
+2. **Do not copy last year’s library tables**  
+   Reusing `authors` / `books` / `borrowings` would fail the Kod Kere ERD and the coffee-shop topic. Noticed by comparing the M1 ERD with last year’s `library_schema.sql`. Fixed by creating `users`, `categories`, `products`, `reservations`, `orders`, `order_items`, `reviews` instead, while keeping the same *DAO style* as the reading (`BaseDao` + child classes, prepared statements).
+

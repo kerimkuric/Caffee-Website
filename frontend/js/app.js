@@ -16,8 +16,7 @@
         "#/products": "products.html",
         "#/categories": "categories.html",
         "#/orders": "orders.html",
-        "#/users": "users.html",
-        "#/weather": "weather.html"
+        "#/users": "users.html"
     };
 
     function currentHash() {
