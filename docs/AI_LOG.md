@@ -57,3 +57,28 @@ If a later milestone uses no AI, say so in that section. `AGENTS.md` is still re
 2. **Do not copy last year’s library tables**  
    Reusing `authors` / `books` / `borrowings` would fail the Kod Kere ERD and the coffee-shop topic. Noticed by comparing the M1 ERD with last year’s `library_schema.sql`. Fixed by creating `users`, `categories`, `products`, `reservations`, `orders`, `order_items`, `reviews` instead, while keeping the same *DAO style* as the reading (`BaseDao` + child classes, prepared statements).
 
+## Milestone 3 (20 Nov 2026)
+
+**Tools:** Cursor (Grok 4.6 agent) for FlightPHP services/routes, OpenAPI, and the Nominatim location endpoint.
+
+**Used for**
+
+- Milestone 3 checklist (services, CRUD routes, Swagger, external API)
+- Last year’s library project as a FlightPHP / Swagger layout reference (`index.php`, `routes/*`, `public/v1/docs`)
+- Nominatim (course example) instead of weather
+
+**Important prompts (summary)**
+
+- Implement Milestone 3 from the course spec
+- Use last year’s GitHub/local project as a code reference, not a copy of library entities
+
+**Where the AI was wrong or weak (at least 2 cases)**
+
+1. **JWT too early**  
+   Last year’s `index.php` wraps almost every route in auth middleware. Doing that in Milestone 3 would block Swagger tests and mix in Milestone 4 work. Noticed by re-reading M3 vs M4. Fixed by leaving CRUD public for now and only documenting `Authorization` in OpenAPI.
+
+2. **Validation as HTTP 500**  
+   Last year’s routes catch every `Exception` as 500, so a missing product name looks like a server crash. The spec wants 400 for bad input. Fixed with `AppException` and `api_handle()` mapping 400/404 separately from 500.
+
+3. **Weather vs maps**  
+   Re-adding OpenWeatherMap would undo Milestone 2. The spec needs *an* external API, and Nominatim is listed as an example. Fixed by geocoding the shop address for the Contact page.

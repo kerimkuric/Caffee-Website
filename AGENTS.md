@@ -5,11 +5,11 @@ Kod Kere is an individual university web-programming project: a coffee shop SPA 
 ## Technology stack
 
 - Frontend: HTML, CSS, JavaScript only. Koppee Bootstrap 4 template, customized. No mixing of PHP into the frontend.
-- Backend: pure PHP, FlightPHP for the REST API (from Milestone 3), PDO with prepared statements.
+- Backend: pure PHP, FlightPHP for the REST API, PDO with prepared statements.
 - Database: MySQL, at least 5 entities with CRUD.
-- Auth: JWT. Roles: `admin` and `customer`.
-- Docs: OpenAPI / Swagger (from Milestone 3).
-- External API: required by the course from Milestone 3. Not weather. A shop-related API (for example maps on the contact page) will be chosen then.
+- Auth: JWT. Roles: `admin` and `customer`. JWT middleware is Milestone 4.
+- Docs: OpenAPI / Swagger at `backend/public/v1/docs/`.
+- External API: OpenStreetMap Nominatim (optional LocationIQ key) on `GET /api/location`, shown on the Contact page.
 
 ## Architecture rules
 
@@ -19,7 +19,8 @@ Kod Kere is an individual university web-programming project: a coffee shop SPA 
 - SQL lives only in DAO classes. Do not write queries in routes or services.
 - Every entity DAO extends `BaseDao` and inherits the PDO connection plus `getAll`, `getById`, `insert`, `update`, `delete`.
 - Always use prepared statements for values. Table/column names are never taken from user input.
-- Middleware is registered once in FlightPHP (auth, roles, request logging, error handling). Do not copy that logic into every route.
+- Validation and constraints live in services (`AppException` with 400/404).
+- Middleware is registered once in FlightPHP (auth, roles, request logging, error handling). Do not copy that logic into every route. Auth middleware is Milestone 4.
 - Secrets live in `backend/config/config.php`. Commit `config.example.php` only.
 - Write info logs to `backend/logs/info.log` and errors to `backend/logs/error.log`.
 - Do not merge `milestone*` branches into `main`. The course reviewer merges after the PR.
@@ -27,7 +28,7 @@ Kod Kere is an individual university web-programming project: a coffee shop SPA 
 ## Folder structure
 
 ```
-backend/routes, services, dao, middleware, config, logs
+backend/routes, services, dao, middleware, config, logs, public/v1/docs
 database/     kod_kere.sql
 frontend/css, js, views, img, lib
 docs/          ERD, AI_LOG.md
@@ -41,10 +42,11 @@ README.md
 - Tables: lowercase plural (`users`, `products`, `order_items`).
 - Frontend views: `frontend/views/*.html`.
 - Hash routes: `#/home`, `#/login`, `#/products`, …
+- API routes: `/api/users`, `/api/products`, `/api/location`, …
 
-## Milestone 2 scope (current)
+## Milestone 3 scope (current)
 
-MySQL schema with sample data and the DAO layer only. No FlightPHP routes, no services, no JWT, no frontend AJAX to the API.
+Services, FlightPHP CRUD for all entities, OpenAPI/Swagger, external location API. No JWT yet.
 
 ## Course reviewer
 
