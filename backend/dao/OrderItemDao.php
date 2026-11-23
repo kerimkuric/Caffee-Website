@@ -19,4 +19,13 @@ class OrderItemDao extends BaseDao
         $stmt->execute(['order_id' => $orderId]);
         return $stmt->fetchAll();
     }
+
+    public function getByProductId(int $productId): array
+    {
+        $stmt = $this->connection->prepare(
+            'SELECT * FROM order_items WHERE product_id = :product_id'
+        );
+        $stmt->execute(['product_id' => $productId]);
+        return $stmt->fetchAll();
+    }
 }

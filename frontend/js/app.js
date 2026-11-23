@@ -76,6 +76,9 @@
             setActiveNav(hash);
             window.scrollTo({ top: 0, behavior: "smooth" });
             reinitPlugins();
+            if (hash === "#/contact" && typeof window.loadShopLocation === "function") {
+                window.loadShopLocation();
+            }
         } catch (err) {
             appEl.innerHTML = '<div class="container py-5"><div class="alert alert-danger">Failed to load page.</div></div>';
             console.error(err);
